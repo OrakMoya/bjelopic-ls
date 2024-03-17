@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\AppController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -15,13 +16,17 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', [AppController::class, 'index'])->name('login');
-Route::get('/profile', function () {
-    return Inertia::render('Profile');
-})->middleware('auth');
-Route::get('/settings', function () {
-    return Inertia::render('Settings');
-});
-Route::get('/logout', function(){
-    return Inertia::render('Settings');
-});
+Route::get("/", [HomeController::class, "index"])->name("homepage");
+
+Route::get("/profile", function () {
+    return Inertia::render("Profile");
+})->middleware("auth")->name("progile");
+
+Route::get("/settings", function () {
+    return Inertia::render("Settings");
+})->middleware("auth")->name("settings");
+
+Route::get("/login", [LoginController::class, "show"])->name("login");
+Route::post("/login", [LoginController::class, "store"]);
+
+Route::get("/logout", [LoginController::class, "discard"])->middleware("auth")->name("logout");

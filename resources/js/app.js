@@ -2,6 +2,7 @@ import { InertiaProgress } from '@inertiajs/progress';
 import './bootstrap';
 import { createInertiaApp } from '@inertiajs/svelte'
 
+import Layout from './Layout.svelte';
 
 
 createInertiaApp({
@@ -10,14 +11,13 @@ createInertiaApp({
 
         const pages = import.meta.glob('./Pages/**/*.svelte', { eager: true })
 
-        return pages[`./Pages/${name}.svelte`]
+        let page = pages[`./Pages/${name}.svelte`];
+        return {default: page.default, layout: page.layout || Layout};
 
     },
 
     setup({ el, App, props }) {
-
         new App({ target: el, props })
-
     },
 
 });

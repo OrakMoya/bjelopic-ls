@@ -1,10 +1,26 @@
 <script>
-    import {inertia, Link} from '@inertiajs/svelte';
+    import { inertia, Link, page } from "@inertiajs/svelte";
+    import NavLink from "./NavLink.svelte";
+
 </script>
 
-
-<ul>
-    <li><Link href="/">Home</Link></li>
-    <li><Link href="/settings">Settings</Link></li>
-    <li><Link href="/profile">Profile</Link></li>
+<ul class="flex gap-x-4 items-baseline transition-all">
+    <li>
+        <NavLink href="/">Home</NavLink>
+    </li>
+    {#if $page.props.username}
+        <li>
+            <NavLink href="/settings">Settings</NavLink>
+        </li>
+        <li>
+            <NavLink href="/profile">Profile</NavLink>
+        </li>
+        <li>
+            <NavLink href="/logout">Logout</NavLink>
+        </li>
+    {:else}
+        <li>
+            <NavLink href="/login">Login</NavLink>
+        </li>
+    {/if}
 </ul>
