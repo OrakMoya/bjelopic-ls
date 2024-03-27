@@ -8,6 +8,7 @@
     "devDependencies": {
         "autoprefixer": "^10.4.18",
         "axios": "^1.6.4",
+        "embla-carousel-svelte": "^8.0.0",
         "laravel-vite-plugin": "^1.0.0",
         "postcss": "^8.4.35",
         "tailwindcss": "^3.4.1",
@@ -17,6 +18,14 @@
         "@inertiajs/progress": "^0.2.7",
         "@inertiajs/svelte": "^1.0.15",
         "@sveltejs/vite-plugin-svelte": "^3.0.2",
-        "svelte": "^4.2.12"
+        "bits-ui": "^0.19.7",
+        "clsx": "^2.1.0",
+        "embla-carousel-autoplay": "^8.0.0",
+        "flowbite-svelte-icons": "^1.5.0",
+        "lucide-svelte": "^0.358.0",
+        "radix-svelte": "^0.9.0",
+        "svelte": "^4.2.12",
+        "tailwind-merge": "^2.2.2",
+        "tailwind-variants": "^0.2.1"
     }
 }

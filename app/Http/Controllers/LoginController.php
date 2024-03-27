@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -22,17 +23,17 @@ class LoginController extends Controller
             'password' => ['required']
         ]);
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials, $request->rememberme)) {
             $request->session()->regenerate();
             return redirect()->to("/");
         }
 
         return back()->withErrors([
-            'email' => 'This email doesn\'t exist.'
+            'password' => 'Incorrect email or password.'
         ]);
     }
 
-    public function discard(Request $request){
+    public function discard(Request $request): Redirector|RedirectResponse{
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();

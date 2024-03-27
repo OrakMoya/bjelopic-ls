@@ -22,5 +22,8 @@
         <li>
             <NavLink href="/login">Login</NavLink>
         </li>
+        <li>
+            <NavLink href="/register">Sign Up</NavLink>
+        </li>
     {/if}
 </ul>
