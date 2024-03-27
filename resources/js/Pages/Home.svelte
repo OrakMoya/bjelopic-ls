@@ -42,7 +42,7 @@
             Bjelo<b class="text-bjelopic_red">PIC</b>
         </h1>
     </section>
-    <div class="px-2 sm:px-10 relative transition-all overflow-x-hidden">
+    <div class="px-2 sm:px-10 relative transition-all">
         {#if posts.length != 0}
             <section>
                 <Carousel.Root
